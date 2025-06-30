@@ -33,84 +33,96 @@ export default function Categories() {
       id: 1,
       name: "Organic Beauty",
       slug: "organic-beauty",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center",
       color: "bg-primary/10",
     },
     {
       id: 2,
       name: "Sustainable Tech",
       slug: "sustainable-tech",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-secondary/50",
     },
     {
       id: 3,
       name: "Eco Home & Garden",
       slug: "eco-home-garden",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop&crop=center",
       color: "bg-accent/50",
     },
     {
       id: 4,
       name: "Sustainable Fashion",
       slug: "sustainable-fashion",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-primary/20",
     },
     {
       id: 5,
       name: "Green Sports",
       slug: "green-sports",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-muted",
     },
     {
       id: 6,
       name: "Eco Accessories",
       slug: "eco-accessories",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-primary/15",
     },
     {
       id: 7,
       name: "Natural Health",
       slug: "natural-health",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-secondary/30",
     },
     {
       id: 8,
       name: "Organic Food",
       slug: "organic-food",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-accent/30",
     },
     {
       id: 9,
       name: "Kids Eco",
       slug: "kids-eco",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-primary/25",
     },
     {
       id: 10,
       name: "Refurbished",
       slug: "refurbished",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-muted/80",
     },
     {
       id: 11,
       name: "Eco Books & Media",
       slug: "eco-books-media",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-secondary/40",
     },
     {
       id: 12,
       name: "Baby Eco",
       slug: "baby-eco",
-      image: "/placeholder.svg?height=300&width=300",
+      image:
+        "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=400&fit=crop&crop=center",
       color: "bg-primary/30",
     },
   ];
@@ -195,7 +207,7 @@ export default function Categories() {
   };
 
   return (
-    <div className="w-full overflow-hidden bg-gradient-to-b from-primary/5 to-background py-8 px-4 md:px-8 relative border-y border-border/50">
+    <div className="w-full overflow-hidden bg-gradient-to-b from-primary/5 to-background py-8 px-4 md:px-8 relative  border-y border-lime-400 border-1 ">
       <div className="max-w-7xl mx-auto">
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -274,7 +286,7 @@ export default function Categories() {
                       category.color
                     } p-1.5 ${
                       hoveredCategory === category.id
-                        ? "shadow-md ring-2 ring-primary/50"
+                        ? "shadow-md ring-2 ring-lime-500"
                         : "shadow-sm"
                     } transition-all duration-300 transform ${
                       hoveredCategory === category.id ? "scale-105" : ""
@@ -318,7 +330,7 @@ export default function Categories() {
         </div>
 
         {/* View All Categories Button */}
-        <div
+        {/* <div
           className={`flex justify-center mt-8 transition-opacity duration-1000 ${
             isVisible ? "opacity-100" : "opacity-0"
           }`}
@@ -331,7 +343,7 @@ export default function Categories() {
             <span className="font-medium">View All Categories</span>
             <ChevronRight className="h-4 w-4 ml-1" />
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Leaf, Search, ShoppingCart } from "lucide-react";
+import { Menu, X, ArrowRight, Leaf,  ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 interface NavItem {
@@ -100,7 +100,7 @@ export default function Header() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-lg font-bold text-foreground">
-                    EcoMart
+                    EcoMat
                   </span>
                   <span className="-mt-1 text-xs text-muted-foreground">
                     Sustainable Shopping

@@ -88,9 +88,9 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div className="relative z-10 mx-auto max-w-5xl overflow-hidden rounded-lg shadow-[0_0_50px_oklch(0.723_0.219_149.579_/_0.2)] border border-border/50">
+          <div className="relative z-10 mx-auto max-w-5xl overflow-hidden rounded-lg shadow-[0_0_50px_oklch(0.723_0.219_149.579_/_0.2)]  border-border/50">
             <img
-              src="/placeholder.svg?height=600&width=1200"
+              src="https://4la5kjr2ao.ufs.sh/f/yulNqQeUp0yQXbKWN0ADPr2RlO86WevKj7AdSZFHIEQqNaVn"
               alt="EcoMart Dashboard"
               width={1920}
               height={1080}

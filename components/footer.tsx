@@ -16,11 +16,11 @@ export default function Footer() {
               <Leaf className="h-5 w-5" />
             </span>
             <span className="bg-gradient-to-br from-primary to-primary/80 bg-clip-text text-xl font-semibold tracking-tight text-transparent">
-              EcoMart
+              EcoMat
             </span>
           </a>
           <p className="mb-6 max-w-xs text-center text-sm text-foreground md:text-left">
-            EcoMart provides sustainable products and eco-friendly solutions to help you create a better future for our
+            EcoMat provides sustainable products and eco-friendly solutions to help you create a better future for our
             planet while enjoying exceptional quality and style.
           </p>
           <div className="mt-2 flex gap-3 text-primary">
@@ -117,7 +117,7 @@ export default function Footer() {
         </nav>
       </div>
       <div className="relative z-10 mt-10 text-center text-xs text-foreground">
-        <span>&copy; 2025 EcoMart. All rights reserved. Building a sustainable future together.</span>
+        <span>&copy; 2025 EcoMat. All rights reserved. Building a sustainable future together.</span>
       </div>
     </footer>
   )
