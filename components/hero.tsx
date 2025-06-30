@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Leaf, ShoppingBag, Recycle } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -89,7 +90,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="relative z-10 mx-auto max-w-5xl overflow-hidden rounded-lg shadow-[0_0_50px_oklch(0.723_0.219_149.579_/_0.2)]  border-border/50">
-            <img
+            <Image
               src="https://4la5kjr2ao.ufs.sh/f/yulNqQeUp0yQXbKWN0ADPr2RlO86WevKj7AdSZFHIEQqNaVn"
               alt="EcoMart Dashboard"
               width={1920}

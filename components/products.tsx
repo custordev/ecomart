@@ -11,6 +11,7 @@ import {
   Sliders,
   Leaf,
 } from "lucide-react";
+import Image from "next/image";
 
 // Product type definition
 type Product = {
@@ -1458,7 +1459,7 @@ const GridProductCard: React.FC<{
         }
       >
         {product.images.map((image, index) => (
-          <img
+          <Image
             key={index}
             src={image || "/placeholder.svg"}
             alt={`${product.name} - view ${index + 1}`}
@@ -1576,10 +1577,12 @@ const ListProductCard: React.FC<{
         }
       >
         {product.images.map((image, index) => (
-          <img
+          <Image
             key={index}
             src={image || "/placeholder.svg"}
             alt={`${product.name} - view ${index + 1}`}
+            width={1080}
+            height={1080}
             className={`w-full h-full object-cover object-center transition-opacity duration-300 ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
@@ -1896,8 +1899,8 @@ const Products = () => {
             No products found
           </h3>
           <p className="text-muted-foreground max-w-md">
-            We couldn't find any products matching your filters. Try adjusting
-            your search criteria or browse our categories.
+            We couldn&apos;t find any products matching your filters. Try
+            adjusting your search criteria or browse our categories.
           </p>
         </div>
       )}

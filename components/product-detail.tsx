@@ -1,65 +1,76 @@
-"use client"
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Heart, ShoppingBag, Globe, Shield, Award, ChevronRight, ChevronLeft, ZoomIn, Star, Leaf } from "lucide-react"
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Heart,
+  ShoppingBag,
+  Globe,
+  Shield,
+  Award,
+  ChevronRight,
+  ChevronLeft,
+  ZoomIn,
+  Star,
+  Leaf,
+} from "lucide-react";
 
 // Types
 interface ProductImage {
-  id: string
-  src: string
-  alt: string
+  id: string;
+  src: string;
+  alt: string;
 }
 
 interface ProductColor {
-  id: string
-  name: string
-  value: string
-  available: boolean
+  id: string;
+  name: string;
+  value: string;
+  available: boolean;
 }
 
 interface ProductSize {
-  id: string
-  label: string
-  available: boolean
+  id: string;
+  label: string;
+  available: boolean;
 }
 
 interface Review {
-  id: string
-  author: string
-  authorImage: string
-  rating: number
-  date: string
-  comment: string
+  id: string;
+  author: string;
+  authorImage: string;
+  rating: number;
+  date: string;
+  comment: string;
 }
 
 interface Product {
-  id: string
-  name: string
-  brand: string
-  price: number
-  originalPrice: number
-  discount: number
-  rating: number
-  reviewCount: number
-  images: ProductImage[]
-  features: string[]
-  colors: ProductColor[]
-  sizes: ProductSize[]
-  reviews: Review[]
-  description: string
+  id: string;
+  name: string;
+  brand: string;
+  price: number;
+  originalPrice: number;
+  discount: number;
+  rating: number;
+  reviewCount: number;
+  images: ProductImage[];
+  features: string[];
+  colors: ProductColor[];
+  sizes: ProductSize[];
+  reviews: Review[];
+  description: string;
   shipping: {
-    free: boolean
-    worldwide: boolean
-    estimatedDelivery: string
-  }
+    free: boolean;
+    worldwide: boolean;
+    estimatedDelivery: string;
+  };
   payment: {
-    secure: boolean
-    methods: string[]
-  }
-  inStock: boolean
-  sku: string
-  isEco: boolean
+    secure: boolean;
+    methods: string[];
+  };
+  inStock: boolean;
+  sku: string;
+  isEco: boolean;
 }
 
 // Mock data
@@ -176,18 +187,20 @@ const productData: Product = {
   inStock: true,
   sku: "EM-OSC-G-001",
   isEco: true,
-}
+};
 
 const ProductDetail = () => {
-  const [activeImage, setActiveImage] = useState(0)
-  const [activeTab, setActiveTab] = useState("description")
-  const [selectedColor, setSelectedColor] = useState("forest")
-  const [selectedSize, setSelectedSize] = useState("m")
-  const [quantity, setQuantity] = useState(1)
-  const [showAllReviews, setShowAllReviews] = useState(false)
+  const [activeImage, setActiveImage] = useState(0);
+  const [activeTab, setActiveTab] = useState("description");
+  const [selectedColor, setSelectedColor] = useState("forest");
+  const [selectedSize, setSelectedSize] = useState("m");
+  const [quantity, setQuantity] = useState(1);
+  const [showAllReviews, setShowAllReviews] = useState(false);
 
   // Get visible reviews based on showAllReviews state
-  const visibleReviews = showAllReviews ? productData.reviews : productData.reviews.slice(0, 3)
+  const visibleReviews = showAllReviews
+    ? productData.reviews
+    : productData.reviews.slice(0, 3);
 
   // Format price with currency
   const formatPrice = (price: number) => {
@@ -196,17 +209,21 @@ const ProductDetail = () => {
       currency: "USD",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
-    }).format(price)
-  }
+    }).format(price);
+  };
 
   // Handle image navigation
   const nextImage = () => {
-    setActiveImage((prev) => (prev === productData.images.length - 1 ? 0 : prev + 1))
-  }
+    setActiveImage((prev) =>
+      prev === productData.images.length - 1 ? 0 : prev + 1
+    );
+  };
 
   const prevImage = () => {
-    setActiveImage((prev) => (prev === 0 ? productData.images.length - 1 : prev - 1))
-  }
+    setActiveImage((prev) =>
+      prev === 0 ? productData.images.length - 1 : prev - 1
+    );
+  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
@@ -233,6 +250,8 @@ const ProductDetail = () => {
                 src={productData.images[activeImage].src || "/placeholder.svg"}
                 alt={productData.images[activeImage].alt}
                 fill
+                width={1080}
+                height={1080}
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
@@ -266,12 +285,16 @@ const ProductDetail = () => {
                 key={image.id}
                 onClick={() => setActiveImage(index)}
                 className={`relative flex-shrink-0 h-20 w-20 rounded-md overflow-hidden ${
-                  activeImage === index ? "ring-2 ring-primary" : "ring-1 ring-border hover:ring-primary/50"
+                  activeImage === index
+                    ? "ring-2 ring-primary"
+                    : "ring-1 ring-border hover:ring-primary/50"
                 }`}
               >
                 <Image
                   src={image.src || "/placeholder.svg"}
                   alt={image.alt}
+                  width={1080}
+                  height={1080}
                   fill
                   className="object-cover"
                   sizes="80px"
@@ -305,18 +328,22 @@ const ProductDetail = () => {
                     index < Math.floor(productData.rating)
                       ? "text-primary fill-primary"
                       : index < productData.rating
-                        ? "text-primary fill-primary opacity-60"
-                        : "text-muted-foreground"
+                      ? "text-primary fill-primary opacity-60"
+                      : "text-muted-foreground"
                   }`}
                 />
               ))}
             </div>
-            <p className="ml-2 text-sm text-muted-foreground">{productData.reviewCount} Reviews</p>
+            <p className="ml-2 text-sm text-muted-foreground">
+              {productData.reviewCount} Reviews
+            </p>
           </div>
 
           {/* Price */}
           <div className="mt-4 flex items-center">
-            <p className="text-3xl font-bold text-foreground">{formatPrice(productData.price)}</p>
+            <p className="text-3xl font-bold text-foreground">
+              {formatPrice(productData.price)}
+            </p>
             {productData.discount > 0 && (
               <>
                 <p className="ml-3 text-lg text-muted-foreground line-through">
@@ -331,10 +358,15 @@ const ProductDetail = () => {
 
           {/* Features */}
           <div className="mt-6">
-            <h3 className="text-lg font-medium text-foreground">Eco Features</h3>
+            <h3 className="text-lg font-medium text-foreground">
+              Eco Features
+            </h3>
             <ul className="mt-2 space-y-2">
               {productData.features.map((feature, index) => (
-                <li key={index} className="flex items-center text-muted-foreground">
+                <li
+                  key={index}
+                  className="flex items-center text-muted-foreground"
+                >
                   <Leaf className="h-4 w-4 text-primary mr-2" />
                   {feature}
                 </li>
@@ -353,12 +385,19 @@ const ProductDetail = () => {
                   disabled={!color.available}
                   className={`
                     relative inline-flex items-center justify-center h-10 w-10 rounded-full border p-0.5
-                    ${selectedColor === color.id ? "ring-2 ring-offset-2 ring-primary" : ""}
+                    ${
+                      selectedColor === color.id
+                        ? "ring-2 ring-offset-2 ring-primary"
+                        : ""
+                    }
                     ${!color.available ? "opacity-50 cursor-not-allowed" : ""}
                   `}
                   title={color.name}
                 >
-                  <span className="rounded-full h-full w-full" style={{ backgroundColor: color.value }}></span>
+                  <span
+                    className="rounded-full h-full w-full"
+                    style={{ backgroundColor: color.value }}
+                  ></span>
                   {!color.available && (
                     <span className="absolute inset-0 flex items-center justify-center">
                       <svg
@@ -385,7 +424,9 @@ const ProductDetail = () => {
           <div className="mt-6">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-medium text-foreground">Size</h3>
-              <button className="text-sm font-medium text-primary hover:text-primary/80">Size guide</button>
+              <button className="text-sm font-medium text-primary hover:text-primary/80">
+                Size guide
+              </button>
             </div>
             <div className="mt-2 grid grid-cols-5 gap-2">
               {productData.sizes.map((size) => (
@@ -400,7 +441,11 @@ const ProductDetail = () => {
                         ? "bg-foreground text-background border-foreground"
                         : "border-border text-foreground hover:bg-muted"
                     }
-                    ${!size.available ? "bg-muted text-muted-foreground cursor-not-allowed" : ""}
+                    ${
+                      !size.available
+                        ? "bg-muted text-muted-foreground cursor-not-allowed"
+                        : ""
+                    }
                   `}
                 >
                   {size.label}
@@ -418,7 +463,9 @@ const ProductDetail = () => {
               >
                 -
               </button>
-              <span className="w-12 text-center py-2 border-x border-border">{quantity}</span>
+              <span className="w-12 text-center py-2 border-x border-border">
+                {quantity}
+              </span>
               <button
                 onClick={() => setQuantity(quantity + 1)}
                 className="px-3 py-2 text-muted-foreground hover:bg-muted"
@@ -441,11 +488,15 @@ const ProductDetail = () => {
           <div className="mt-8 space-y-4">
             <div className="flex items-center">
               <Globe className="h-5 w-5 text-primary mr-2" />
-              <p className="text-sm text-muted-foreground">Free shipping worldwide</p>
+              <p className="text-sm text-muted-foreground">
+                Free shipping worldwide
+              </p>
             </div>
             <div className="flex items-center">
               <Shield className="h-5 w-5 text-primary mr-2" />
-              <p className="text-sm text-muted-foreground">100% Secure Payment</p>
+              <p className="text-sm text-muted-foreground">
+                100% Secure Payment
+              </p>
             </div>
             <div className="flex items-center">
               <Award className="h-5 w-5 text-primary mr-2" />
@@ -491,7 +542,10 @@ const ProductDetail = () => {
           {activeTab === "reviews" && (
             <div className="space-y-8">
               {visibleReviews.map((review) => (
-                <div key={review.id} className="border-b border-border pb-8 last:border-0">
+                <div
+                  key={review.id}
+                  className="border-b border-border pb-8 last:border-0"
+                >
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mr-4">
                       <Image
@@ -509,14 +563,20 @@ const ProductDetail = () => {
                             <Star
                               key={index}
                               className={`h-4 w-4 ${
-                                index < review.rating ? "text-primary fill-primary" : "text-muted-foreground"
+                                index < review.rating
+                                  ? "text-primary fill-primary"
+                                  : "text-muted-foreground"
                               }`}
                             />
                           ))}
                         </div>
                       </div>
-                      <p className="mt-1 text-sm font-medium text-foreground">{review.author}</p>
-                      <p className="mt-1 text-sm text-muted-foreground">{review.date}</p>
+                      <p className="mt-1 text-sm font-medium text-foreground">
+                        {review.author}
+                      </p>
+                      <p className="mt-1 text-sm text-muted-foreground">
+                        {review.date}
+                      </p>
                       <div className="mt-2 text-sm text-muted-foreground">
                         <p>{review.comment}</p>
                       </div>
@@ -545,24 +605,32 @@ const ProductDetail = () => {
                   Environmental Impact
                 </h3>
                 <p className="mt-2 text-muted-foreground">
-                  This product is made with 100% organic cotton, reducing water usage by 91% compared to conventional
-                  cotton. Our sustainable dyeing process eliminates harmful chemicals and reduces water pollution.
+                  This product is made with 100% organic cotton, reducing water
+                  usage by 91% compared to conventional cotton. Our sustainable
+                  dyeing process eliminates harmful chemicals and reduces water
+                  pollution.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-foreground">Fair Trade Certification</h3>
+                <h3 className="text-lg font-medium text-foreground">
+                  Fair Trade Certification
+                </h3>
                 <p className="mt-2 text-muted-foreground">
-                  We work directly with fair trade certified suppliers, ensuring fair wages and safe working conditions
-                  for all workers involved in the production process.
+                  We work directly with fair trade certified suppliers, ensuring
+                  fair wages and safe working conditions for all workers
+                  involved in the production process.
                 </p>
               </div>
 
               <div>
-                <h3 className="text-lg font-medium text-foreground">Carbon Neutral Shipping</h3>
+                <h3 className="text-lg font-medium text-foreground">
+                  Carbon Neutral Shipping
+                </h3>
                 <p className="mt-2 text-muted-foreground">
-                  All orders are shipped carbon neutral through our partnership with environmental organizations. We
-                  offset 100% of shipping emissions through verified carbon reduction projects.
+                  All orders are shipped carbon neutral through our partnership
+                  with environmental organizations. We offset 100% of shipping
+                  emissions through verified carbon reduction projects.
                 </p>
               </div>
             </div>
@@ -570,7 +638,7 @@ const ProductDetail = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProductDetail
+export default ProductDetail;

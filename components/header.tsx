@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Leaf,  ShoppingCart } from "lucide-react";
+import { Menu, X, ArrowRight, Leaf, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 interface NavItem {
@@ -48,25 +48,25 @@ export default function Header() {
     visible: { opacity: 1, y: 0 },
   };
 
-  const mobileMenuVariants = {
-    closed: {
-      opacity: 0,
-      x: "100%",
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-      },
-    },
-    open: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut",
-        staggerChildren: 0.1,
-      },
-    },
-  };
+  // const mobileMenuVariants = {
+  //   closed: {
+  //     opacity: 0,
+  //     x: "100%",
+  //     transition: {
+  //       duration: 0.3,
+  //       ease: "easeInOut",
+  //     },
+  //   },
+  //   open: {
+  //     opacity: 1,
+  //     x: 0,
+  //     transition: {
+  //       duration: 0.3,
+  //       ease: "easeInOut",
+  //       staggerChildren: 0.1,
+  //     },
+  //   },
+  // };
 
   const mobileItemVariants = {
     closed: { opacity: 0, x: 20 },
@@ -110,7 +110,7 @@ export default function Header() {
             </motion.div>
 
             <nav className="hidden items-center space-x-1 lg:flex">
-              {navItems.map((item, index) => (
+              {navItems.map((item) => (
                 <motion.div
                   key={item.name}
                   variants={itemVariants}
@@ -212,7 +212,7 @@ export default function Header() {
             />
             <motion.div
               className="fixed right-4 top-16 z-50 w-80 overflow-hidden rounded-2xl border-border bg-background shadow-2xl lg:hidden"
-              variants={mobileMenuVariants as any}
+              // variants={mobileMenuVariants}
               initial="closed"
               animate="open"
               exit="closed"

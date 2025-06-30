@@ -3,6 +3,7 @@
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 interface CategoryItem {
   id: number;
@@ -294,8 +295,10 @@ export default function Categories() {
                   >
                     <div className="relative w-full h-full rounded-full overflow-hidden bg-background flex items-center justify-center">
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-foreground/5"></div>
-                      <img
+                      <Image
                         src={category.image || "/placeholder.svg"}
+                        width={1080}
+                        height={1080}
                         alt={category.name}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
